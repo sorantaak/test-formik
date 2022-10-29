@@ -22,6 +22,12 @@ function App() {
 			) {
 				errors.email = "the email field must be email format";
 			}
+			if (values.username === "") {
+				errors.username = "the username field is requierd";
+			}
+			if (values.password === "") {
+				errors.password = "the password field is requierd";
+			}
 			console.log(errors);
 			return errors;
 		},
@@ -42,21 +48,25 @@ function App() {
 					<label>Your Name</label>
 					<input
 						name="name"
+						onBlur={formik.handleBlur}
 						value={formik.values.name}
 						onChange={formik.handleChange}
 						type="text"
 					/>
-					{formik.errors.name ? <span>{formik.errors.name}</span> : null}
+					{formik.touched.name && formik.errors.name ? (
+						<span>{formik.errors.name}</span>
+					) : null}
 				</div>
 				<div>
 					<label>User Name</label>
 					<input
 						name="username"
+						onBlur={formik.handleBlur}
 						value={formik.values.username}
 						onChange={formik.handleChange}
 						type="text"
 					/>
-					{formik.errors.username ? (
+					{formik.touched.username && formik.errors.username ? (
 						<span>{formik.errors.username}</span>
 					) : null}
 				</div>
@@ -64,22 +74,29 @@ function App() {
 					<label>Email Address</label>
 					<input
 						name="email"
+						onBlur={formik.handleBlur}
 						value={formik.values.email}
 						onChange={formik.handleChange}
 						type="text"
 					/>
-					{formik.errors.email ? <span>{formik.errors.email}</span> : null}
+					{formik.touched.email && formik.errors.email ? (
+						<span>{formik.errors.email}</span>
+					) : null}
 				</div>
 				<div>
 					<label>Pssword</label>
 					<input
+						onBlur={formik.handleBlur}
 						name="password"
 						value={formik.values.password}
 						onChange={formik.handleChange}
 						type="text"
 					/>
+					{formik.touched.password && formik.errors.password ? (
+						<span>{formik.errors.password}</span>
+					) : null}
 				</div>
-				{formik.errors.password ? <span>{formik.errors.password}</span> : null}
+
 				<button type="submit">send</button>
 			</form>
 		</div>
