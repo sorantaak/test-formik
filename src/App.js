@@ -48,9 +48,10 @@ function App() {
 					<label>Your Name</label>
 					<input
 						name="name"
-						onBlur={formik.handleBlur}
-						value={formik.values.name}
-						onChange={formik.handleChange}
+						// onBlur={formik.handleBlur}
+						// value={formik.values.name}
+						// onChange={formik.handleChange}
+						{...formik.getFieldProps("name")}
 						type="text"
 					/>
 					{formik.touched.name && formik.errors.name ? (
@@ -61,9 +62,10 @@ function App() {
 					<label>User Name</label>
 					<input
 						name="username"
-						onBlur={formik.handleBlur}
-						value={formik.values.username}
-						onChange={formik.handleChange}
+						// onBlur={formik.handleBlur}
+						// value={formik.values.username}
+						// onChange={formik.handleChange}
+						{...formik.getFieldProps("username")}
 						type="text"
 					/>
 					{formik.touched.username && formik.errors.username ? (
@@ -74,9 +76,10 @@ function App() {
 					<label>Email Address</label>
 					<input
 						name="email"
-						onBlur={formik.handleBlur}
-						value={formik.values.email}
-						onChange={formik.handleChange}
+						{...formik.getFieldProps("email")}
+						// onBlur={formik.handleBlur}
+						// value={formik.values.email}
+						// onChange={formik.handleChange}
 						type="text"
 					/>
 					{formik.touched.email && formik.errors.email ? (
@@ -86,10 +89,11 @@ function App() {
 				<div>
 					<label>Pssword</label>
 					<input
-						onBlur={formik.handleBlur}
 						name="password"
-						value={formik.values.password}
-						onChange={formik.handleChange}
+						{...formik.getFieldProps("password")}
+						// onBlur={formik.handleBlur}
+						// value={formik.values.password}
+						// onChange={formik.handleChange}
 						type="text"
 					/>
 					{formik.touched.password && formik.errors.password ? (
